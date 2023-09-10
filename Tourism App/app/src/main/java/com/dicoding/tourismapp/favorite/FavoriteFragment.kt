@@ -5,20 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.tourismapp.core.ui.TourismAdapter
-import com.dicoding.tourismapp.core.ui.ViewModelFactory
 import com.dicoding.tourismapp.databinding.FragmentFavoriteBinding
 import com.dicoding.tourismapp.detail.DetailTourismActivity
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposables
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class FavoriteFragment : Fragment() {
 
-    private lateinit var favoriteViewModel: FavoriteViewModel
+    private val favoriteViewModel: FavoriteViewModel by viewModel()
     private val disposable: CompositeDisposable? = null
 
     private var _binding: FragmentFavoriteBinding? = null
@@ -27,7 +24,7 @@ class FavoriteFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -44,9 +41,6 @@ class FavoriteFragment : Fragment() {
                 startActivity(intent)
             }
 
-            val factory = ViewModelFactory.getInstance(requireActivity())
-            favoriteViewModel = ViewModelProvider(this, factory)[FavoriteViewModel::class.java]
-
             favoriteViewModel.favoriteTourism.observe(viewLifecycleOwner) { dataTourism ->
                 tourismAdapter.setData(dataTourism)
                 binding.viewEmpty.root.visibility =
@@ -57,14 +51,6 @@ class FavoriteFragment : Fragment() {
                 setHasFixedSize(true)
                 adapter = tourismAdapter
             }
-//            val disposableFavTourism = favoriteViewModel.favoriteTourism.subscribe(
-//                { data ->
-//                    tourismAdapter.setData(data)
-//                    binding.viewEmpty.root.visibility = if (data.isNotEmpty()) View.GONE else View.VISIBLE
-//                },
-//                { error -> Toast.makeText(requireContext(), "error: $error", Toast.LENGTH_SHORT).show()}
-//            )
-//            disposable?.add(disposableFavTourism)
         }
     }
 
