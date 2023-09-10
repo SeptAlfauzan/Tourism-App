@@ -1,6 +1,7 @@
 package com.dicoding.tourismapp.di
 
 import com.dicoding.tourismapp.core.di.dagger.CoreComponent
+import com.dicoding.tourismapp.core.di.dagger.ViewModelModule
 import com.dicoding.tourismapp.detail.DetailTourismActivity
 import com.dicoding.tourismapp.favorite.FavoriteFragment
 import com.dicoding.tourismapp.home.HomeFragment
@@ -9,7 +10,7 @@ import dagger.Component
 @AppScope
 @Component(
     dependencies = [CoreComponent::class],
-    modules = [AppModule::class]
+    modules = [AppModule::class, ViewModelModule::class]
 )
 interface AppComponent {
     @Component.Factory
