@@ -14,18 +14,18 @@ import com.dicoding.tourismapp.core.utils.AppExecutors
 import com.dicoding.tourismapp.core.utils.JsonHelper
 
 object Injection {
-    fun provideRepository(context: Context): TourismRepository {
-        val database = TourismDatabase.getInstance(context)
-
-        val remoteDataSource = RemoteDataSource.getInstance(ApiConfig.provideApiService())
-        val localDataSource = LocalDataSource.getInstance(database.tourismDao())
-        val appExecutors = AppExecutors()
-
-        return TourismRepository.getInstance(remoteDataSource, localDataSource, appExecutors)
-    }
-
-    fun provideTourismUseCase(context: Context): TourismUseCase{
-        val respository = provideRepository(context)
-        return TourismInteractor(respository)
-    }
+//    fun provideRepository(context: Context): TourismRepository {
+//        val database = TourismDatabase.getInstance(context)
+//
+//        val remoteDataSource = RemoteDataSource.getInstance(ApiConfig.provideApiService())
+//        val localDataSource = LocalDataSource.getInstance(database.tourismDao())
+//        val appExecutors = AppExecutors()
+//
+//        return TourismRepository.getInstance(remoteDataSource, localDataSource, appExecutors)
+//    }
+//
+//    fun provideTourismUseCase(context: Context): TourismUseCase{
+//        val respository = provideRepository(context)
+//        return TourismInteractor(respository)
+//    }
 }
