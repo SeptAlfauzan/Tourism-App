@@ -1,8 +1,7 @@
 package com.dicoding.tourismapp.di
 
-import com.dicoding.tourismapp.core.domain.repository.ITourismRepository
-import com.dicoding.tourismapp.core.domain.usecase.TourismInteractor
-import com.dicoding.tourismapp.core.domain.usecase.TourismUseCase
+import com.septalfauzan.core.domain.usecase.TourismInteractor
+import com.septalfauzan.core.domain.usecase.TourismUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

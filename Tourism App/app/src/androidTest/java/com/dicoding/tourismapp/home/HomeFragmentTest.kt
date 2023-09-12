@@ -1,8 +1,8 @@
 package com.dicoding.tourismapp.home
 
-import com.dicoding.tourismapp.core.data.TourismRepository
+import com.septalfauzan.core.data.TourismRepository
 import com.dicoding.tourismapp.core.di.*
-import com.dicoding.tourismapp.core.domain.model.Tourism
+import com.septalfauzan.core.domain.model.Tourism
 import org.junit.After
 import org.junit.Before
 import org.junit.Test

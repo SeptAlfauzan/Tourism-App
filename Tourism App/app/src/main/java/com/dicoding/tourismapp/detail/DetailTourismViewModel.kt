@@ -1,10 +1,8 @@
 package com.dicoding.tourismapp.detail
 
 import androidx.lifecycle.ViewModel
-import com.dicoding.tourismapp.core.data.TourismRepository
-import com.dicoding.tourismapp.core.data.source.local.entity.TourismEntity
-import com.dicoding.tourismapp.core.domain.model.Tourism
-import com.dicoding.tourismapp.core.domain.usecase.TourismUseCase
+import com.septalfauzan.core.domain.model.Tourism
+import com.septalfauzan.core.domain.usecase.TourismUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
