@@ -1,10 +1,13 @@
 package com.dicoding.tourismapp.detail
 
 import androidx.lifecycle.ViewModel
-import com.dicoding.tourismapp.core.data.TourismRepository
-import com.dicoding.tourismapp.core.data.source.local.entity.TourismEntity
+import com.septalfauzan.core.domain.model.Tourism
+import com.septalfauzan.core.domain.usecase.TourismUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class DetailTourismViewModel(private val tourismRepository: TourismRepository) : ViewModel() {
-    fun setFavoriteTourism(tourism: TourismEntity, newStatus:Boolean) = tourismRepository.setFavoriteTourism(tourism, newStatus)
+@HiltViewModel
+class DetailTourismViewModel @Inject constructor(private val tourismUseCase: TourismUseCase) : ViewModel() {
+    fun setFavoriteTourism(tourism: Tourism, newStatus:Boolean) = tourismUseCase.setFavoriteTourism(tourism, newStatus)
 }
 

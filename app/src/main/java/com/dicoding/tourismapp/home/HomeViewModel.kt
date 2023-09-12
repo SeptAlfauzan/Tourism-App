@@ -1,11 +1,14 @@
 package com.dicoding.tourismapp.home
 
 import androidx.lifecycle.ViewModel
-import com.dicoding.tourismapp.core.data.TourismRepository
+import androidx.lifecycle.asLiveData
+import com.septalfauzan.core.domain.usecase.TourismUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HomeViewModel(tourismRepository: TourismRepository) : ViewModel() {
 
-    val tourism = tourismRepository.getAllTourism()
-
+@HiltViewModel
+class HomeViewModel @Inject constructor(tourismUseCase: TourismUseCase) : ViewModel() {
+    val tourism = tourismUseCase.getAllTourism().asLiveData()
 }
 
