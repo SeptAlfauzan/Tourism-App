@@ -1,11 +1,11 @@
 package com.dicoding.tourismapp.favorite
 
 import androidx.lifecycle.ViewModel
-import com.dicoding.tourismapp.core.data.TourismRepository
+import androidx.lifecycle.asLiveData
+import com.dicoding.tourismapp.core.domain.usecase.TourismUseCase
+import javax.inject.Inject
 
-class FavoriteViewModel(tourismRepository: TourismRepository) : ViewModel() {
-
-    val favoriteTourism = tourismRepository.getFavoriteTourism()
-
+class FavoriteViewModel @Inject constructor(tourismUseCase: TourismUseCase) : ViewModel() {
+    val favoriteTourism = tourismUseCase.getFavoriteTourism().asLiveData()
 }
 
